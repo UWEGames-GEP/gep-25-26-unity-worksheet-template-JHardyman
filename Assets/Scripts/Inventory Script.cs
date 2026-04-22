@@ -17,21 +17,14 @@ public class InventoryScript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.T))
-        // {
-        //    AddItem("Generic Item");
-        // }
-        // if (Input.GetKeyDown(KeyCode.Y))
-        // {
-        //    RemoveItem("Generic Item");
-        //  }
+        
 
     }
 
-    public void AddItem(ItemScript item)
+    public void AddItemToInventory(ItemScript item)
     {
         items.Add(item);
     }
@@ -57,33 +50,29 @@ public class InventoryScript : MonoBehaviour
 
     }
 
-    public void RemoveItem()
+    public void RemoveItemFromInventory()
     {
 
         if (gameManager.state == GameManagerAdd.GameState.GAMEPLAY && items.Count > 0)
         {
 
             ItemScript item = items[0];
-
+            Vector3 currentPosition = transform.position;
+            Vector3 forward = transform.forward;
+            Vector3 newPosition = currentPosition + forward;
+            newPosition += new Vector3(0, 1, 0);
+            Quaternion currentRotation = transform.rotation;
+            Quaternion newRotation = currentRotation * Quaternion.Euler(0, 0, 180);
+            GameObject newItem = Instantiate(item.gameObject, newPosition, newRotation, ItemTransform);
+            newItem.SetActive(true);
             RemoveItem(item);
-
-            // ItemScript item = items[0];
-            //Vector3 currentPosition = transform.position;
-            // Vector3 forward = transform.forward;
-            // Vector3 newPosition = currentPosition + forward;
-            // newPosition += new Vector3(0, 1, 0);
-            // Quaternion currentRotation = transform.rotation;
-            // Quaternion newRotation = currentRotation * Quaternion.Euler(0, 0, 180);
-            // GameObject newItem = Instantiate(item.gameObject, newPosition, newRotation, ItemTransform);
-            // newItem.SetActive(true);
-            // items.Remove(item);
-            // Destroy(item.gameObject);
+            Destroy(item.gameObject);
 
         }
 
     }
 
-    public void RemoveItem(int i)
+    public void RemoveItemFromInventory(int i)
     {
         if (i < items.Count)
         {

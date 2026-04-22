@@ -12,7 +12,7 @@ public class InventoryRefresh : MonoBehaviour
 
     public void OnInventoryUIButtons(int i)
     {
-        Inventory.RemoveItem(i);
+        Inventory.RemoveItemFromInventory(i);
         RefreshInventory();
     }
     private void OnEnable()

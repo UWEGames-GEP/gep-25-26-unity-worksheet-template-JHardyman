@@ -45,22 +45,25 @@ public class GameManagerAdd : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            switch (state)
-            {
-                case GameState.GAMEPLAY:
-                    state = GameState.PAUSE;
-                    hasChangedState = true;
-                    break;
-                case GameState.PAUSE:
-                    state = GameState.GAMEPLAY;
-                    hasChangedState = true;
-                    break;
-            }
-        }
+        
     }
 
+    public void PauseGame()
+    {
+        switch (state)
+        {
+            case GameState.GAMEPLAY:
+                state = GameState.PAUSE;
+
+                hasChangedState = true;
+                break;
+            case GameState.PAUSE:
+                state = GameState.GAMEPLAY;
+                hasChangedState = true;
+                break;
+        }
+
+    }
 
 
 }
