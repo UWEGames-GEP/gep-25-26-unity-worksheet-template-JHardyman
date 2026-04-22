@@ -15,7 +15,6 @@ public class GameManagerAdd : MonoBehaviour
     public bool hasChangedState;
     public InventoryScript Inventory;
     public GameObject InventoryUI;
-    public GameObject InventoryPanel;
 
 
     void Start()
@@ -38,14 +37,12 @@ public class GameManagerAdd : MonoBehaviour
             {
                 Time.timeScale = 1.0f;
                 InventoryUI.SetActive(false);
-                InventoryPanel.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else if (state == GameState.PAUSE)
             {
                 Time.timeScale = 0.0f;
                 InventoryUI.SetActive(true);
-                InventoryPanel.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
             }
         }
