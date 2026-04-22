@@ -10,13 +10,9 @@ public class InventoryScript : MonoBehaviour
     public Transform ItemTransform;
     public InventoryScript Inventory;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //Find The Game Manager and reference it
         gameManager = FindAnyObjectByType<GameManagerAdd>();
-
-        //Find Items transform and reference it
         Transform ItemTransform = GameObject.Find("Items").transform;
 
     }
@@ -107,8 +103,6 @@ public class InventoryScript : MonoBehaviour
         if (collisionItem != null)
         {
             items.Add(collisionItem);
-
-            Destroy(collisionItem.gameObject);
 
             collisionItem.gameObject.SetActive(false);
         }

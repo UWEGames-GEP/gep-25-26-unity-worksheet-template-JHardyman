@@ -23,14 +23,11 @@ public class GameManagerAdd : MonoBehaviour
     private void LateUpdate()
     {
 
-        //check if game state is changed
         if (hasChangedState)
         {
 
-            //Toggle hasChangedState
             hasChangedState = false;
 
-            //apply behaviour based on new game state
             if (state == GameState.GAMEPLAY)
             {
                 Time.timeScale = 1.0f;
@@ -64,11 +61,6 @@ public class GameManagerAdd : MonoBehaviour
         }
     }
 
-    public void PauseGame()
-    {
-
-        
-    }
 
 
 }

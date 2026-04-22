@@ -6,10 +6,6 @@ public class PlayerCharacterController : ThirdPersonController
 {
     public GameManagerAdd gameManager;
 
-    private void OnPause(InputValue value)
-    {
-        
-    }
     private void OnRemoveItem(InputValue value)
     {
 
