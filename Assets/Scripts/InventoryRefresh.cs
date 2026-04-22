@@ -41,7 +41,7 @@ public class InventoryRefresh : MonoBehaviour
                 var uiButtons = InventoryUI[i].GetComponent<InventoryUI>();
                 var item = Inventory.items[i];
 
-                uiButtons.gameObject.SetActive(true);
+                uiButtons.gameObject.SetActive(true);  
                 uiButtons.SetButton(item);
 
             }

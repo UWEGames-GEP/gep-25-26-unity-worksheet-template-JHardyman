@@ -101,17 +101,14 @@ public class InventoryScript : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        //Get Item componenet from hit object if it exisits
         ItemScript collisionItem = hit.gameObject.GetComponent<ItemScript>();
 
-        //check if object has Item componenet
+
         if (collisionItem != null)
         {
-            //Add the item to data structure
             items.Add(collisionItem);
 
-            //Destory game object that item component 
-            //Destroy(collisionItem.gameObject);
+            Destroy(collisionItem.gameObject);
 
             collisionItem.gameObject.SetActive(false);
         }
