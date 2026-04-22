@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class RefreshInventory : MonoBehaviour
+public class InventoryRefresh : MonoBehaviour
 {
     public InventoryScript Inventory;
     public List<GameObject> InventoryUI = new List<GameObject>();
@@ -13,16 +13,16 @@ public class RefreshInventory : MonoBehaviour
     public void OnInventoryUIButtons(int i)
     {
         Inventory.RemoveItem(i);
-        InventoryRefresh();
+        RefreshInventory();
     }
     private void OnEnable()
     {
         InventoryUI.Clear();
         CollectButtons(InventoryPannel.transform, InventoryUI);
-        InventoryRefresh();
+        RefreshInventory();
     }
 
-    void InventoryRefresh()
+    void RefreshInventory()
     {
         Debug.Log("Refresh Inventory UI");
 
@@ -38,7 +38,7 @@ public class RefreshInventory : MonoBehaviour
 
             if (i < InventoryUI.Count)
             {
-                var uiButtons = InventoryUI[i].GetComponent<InventoryUIButtons>();
+                var uiButtons = InventoryUI[i].GetComponent<InventoryUI>();
                 var item = Inventory.items[i];
 
                 uiButtons.gameObject.SetActive(true);

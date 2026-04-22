@@ -46,23 +46,28 @@ public class GameManagerAdd : MonoBehaviour
         }
     }
 
-
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            switch (state)
+            {
+                case GameState.GAMEPLAY:
+                    state = GameState.PAUSE;
+                    hasChangedState = true;
+                    break;
+                case GameState.PAUSE:
+                    state = GameState.GAMEPLAY;
+                    hasChangedState = true;
+                    break;
+            }
+        }
+    }
 
     public void PauseGame()
     {
-        //Checking current gamestate
-        if (state == GameState.GAMEPLAY)
-        {
-            //Toggle state over return key
-            state = GameState.PAUSE;
-            hasChangedState = true;
-        }
-        else if (state == GameState.PAUSE)
-        {
-            //Toggle state over the return key
-            state = GameState.GAMEPLAY;
-            hasChangedState = true;
-        }
+
+        
     }
 
 

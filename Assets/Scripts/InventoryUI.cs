@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class InventoryUIButtons : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
 
     public TMP_Text buttontext;
