@@ -31,6 +31,8 @@ public class InventoryScript : MonoBehaviour
     public void AddItemToInventory(ItemScript item)
     {
         items.Add(item);
+        Inventory.CollectButtons(InventoryPanel.transform, Inventory.InventoryButton);
+        Inventory.RefreshInventory();
     }
 
     public void RemoveItem(ItemScript item)
@@ -50,7 +52,7 @@ public class InventoryScript : MonoBehaviour
 
         items.Remove(item);
         Destroy(item.gameObject);
-
+        Inventory.RefreshInventory();
 
     }
 
@@ -59,18 +61,12 @@ public class InventoryScript : MonoBehaviour
 
         if (gameManager.state == GameManagerAdd.GameState.GAMEPLAY && items.Count > 0)
         {
-
+            
             ItemScript item = items[0];
-            Vector3 currentPosition = transform.position;
-            Vector3 forward = transform.forward;
-            Vector3 newPosition = currentPosition + forward;
-            newPosition += new Vector3(0, 1, 0);
-            Quaternion currentRotation = transform.rotation;
-            Quaternion newRotation = currentRotation * Quaternion.Euler(0, 0, 180);
-            GameObject newItem = Instantiate(item.gameObject, newPosition, newRotation, ItemTransform);
-            newItem.SetActive(true);
+            RemoveItemFromInventory(0);
             RemoveItem(item);
             Destroy(item.gameObject);
+            Inventory.RefreshInventory();
 
         }
 

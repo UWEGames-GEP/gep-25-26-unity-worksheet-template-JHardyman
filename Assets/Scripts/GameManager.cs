@@ -14,13 +14,13 @@ public class GameManagerAdd : MonoBehaviour
     public GameState state;
     public bool hasChangedState;
     public InventoryScript Inventory;
-    public GameObject InventoryUI;
+    public GameObject InventoryPanel;
 
 
     void Start()
     {
         state = GameState.GAMEPLAY;
-        InventoryUI.SetActive(false);
+        InventoryPanel.SetActive(false);
     }
 
 
@@ -36,13 +36,13 @@ public class GameManagerAdd : MonoBehaviour
             if (state == GameState.GAMEPLAY)
             {
                 Time.timeScale = 1.0f;
-                InventoryUI.SetActive(false);
+                InventoryPanel.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else if (state == GameState.PAUSE)
             {
                 Time.timeScale = 0.0f;
-                InventoryUI.SetActive(true);
+                InventoryPanel.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
             }
         }
