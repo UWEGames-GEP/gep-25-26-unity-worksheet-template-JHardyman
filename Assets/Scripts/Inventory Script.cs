@@ -88,8 +88,7 @@ public class InventoryScript : MonoBehaviour
     {
         ItemScript collisionItem = hit.gameObject.GetComponent<ItemScript>();
 
-
-        if (collisionItem != null)
+        if (Input.GetKeyDown(KeyCode.E) && collisionItem != null)
         {
             items.Add(collisionItem);
 
